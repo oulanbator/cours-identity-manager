@@ -2,8 +2,14 @@
 
   <mat-toolbar  color="primary">
     <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
-      <mat-icon *ngIf="drawer.opened === false" aria-label="Side nav toggle icon">menu_open</mat-icon>
-      <mat-icon *ngIf="drawer.opened === true" aria-label="Side nav toggle icon">menu</mat-icon>
+<!--      Le code proposé génère une erreur : ExpressionChangedAfterItHasBeenCheckedError -->
+<!--      <mat-icon *ngIf="drawer.opened === false" aria-label="Side nav toggle icon">menu_open</mat-icon>-->
+<!--      <mat-icon *ngIf="drawer.opened === true" aria-label="Side nav toggle icon">menu</mat-icon>-->
+
+<!--      Remplacé par le code suivant :-->
+      <mat-icon aria-label="Side nav toggle icon" (click)="toggleIcon(drawer.opened)">{{menuIcon}}</mat-icon>
+<!--      L'icone pour le menu est définie par la variable menuIcon, elle-même étant modifiée au click
+          de l'utilisateur grâce à la fonction toggleIcon() -->
     </button>
     <span>Gestion des utilisateurs</span>
 

@@ -2,7 +2,6 @@ import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {UserLdap} from "../model/user-ldap";
 import {MatPaginator} from "@angular/material/paginator";
-import {LDAP_USERS} from "../model/ldap-mock-data";
 import {MatSlideToggleChange} from "@angular/material/slide-toggle";
 import {UsersService} from "../service/users.service";
 import {Router} from "@angular/router";
@@ -57,10 +56,18 @@ export class LdapListComponent implements OnInit {
   }
 
   edit(login: string) {
-    this.router.navigate(['/users', login]).then((e) => {
+    this.router.navigate(['/user/', login]).then((e) => {
       if (!e) {
         console.log("Navigation has failed !")
       }
     })
+  }
+
+  addUser() {
+    this.router.navigate(['/user/add']).then((e) => {
+      if (!e) {
+        console.log('Nagigation has failed!');
+      }
+    });
   }
 }

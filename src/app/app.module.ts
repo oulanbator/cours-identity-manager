@@ -12,6 +12,9 @@ import {LayoutModule} from "@angular/cdk/layout";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { LdapEditComponent } from './ldap-edit/ldap-edit.component';
 import { LdapAddComponent } from './ldap-add/ldap-add.component';
+import { AlertComponent } from './share/alert/alert.component';
+import {MAT_SNACK_BAR_DEFAULT_OPTIONS} from "@angular/material/snack-bar";
+import {LdapDetailComponent} from "./ldap-detail/ldap-detail.component";
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { LdapAddComponent } from './ldap-add/ldap-add.component';
     PageNotFoundComponent,
     NavbarComponent,
     LdapEditComponent,
-    LdapAddComponent
+    LdapAddComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,9 @@ import { LdapAddComponent } from './ldap-add/ldap-add.component';
     AppRoutingModule,
     NoopAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500, verticalPosition: 'top'}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

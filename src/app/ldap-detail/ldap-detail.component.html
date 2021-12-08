@@ -2,7 +2,7 @@
   <button mat-icon-button (click)="goToLdap()">
     <mat-icon aria-label="Accueil">arrow_back</mat-icon>
   </button>
-  Edition d'un utilisateur
+  {{ addForm ? "Ajout d'un utilisateur" : "Ajout d'un utilisateur" }}
 </h3>
 
 <section class="loading" *ngIf="processLoadRunning">
@@ -10,17 +10,21 @@
   <span>&nbsp; En cours de chargement...</span>
 </section>
 
+<app-alert *ngIf="errorMessage.length>0" [type]="'danger'">{{errorMessage}}</app-alert>
+
 <form class="user-form" *ngIf="!processLoadRunning" [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
   <table class="user-full-width">
     <tr>
       <td>
         <mat-form-field class="user-full-width">
           <input matInput class="form-control" placeholder="Nom de l'utilisateur" id="nom" formControlName="nom" required (input)="updateLogin()"/>
+          <mat-error>Le nom est requis</mat-error>
         </mat-form-field>
       </td>
       <td>
         <mat-form-field class="user-full-width">
           <input matInput class="form-control" placeholder="Prénom de l'utilisateur" id="prenom" formControlName="prenom" required (input)="updateLogin()"/>
+          <mat-error>Le prénom est requis</mat-error>
         </mat-form-field>
       </td>
     </tr>
@@ -31,6 +35,7 @@
       <td>
         <mat-form-field class="user-full-width">
           <input matInput class="form-control" placeholder="Login de l'utilisateur" id="login" formControlName="login" required (input)="updateMail()"/>
+          <mat-error>Le login est requis</mat-error>
         </mat-form-field>
       </td>
       <td>
@@ -46,12 +51,21 @@
     <tr>
       <td>
         <mat-form-field class="user-full-width">
-          <input matInput type="password"  class="form-control" placeholder="Mot de passe" id="password" formControlName="password" />
+          <input matInput type="password"
+                class="form-control"
+                [placeholder]="passwordPlaceHolder"
+                id="password" formControlName="password"
+                [errorStateMatcher]="confirmValidParentMatcher"/>
+          <mat-error>Les mots de passe doivent être identiques</mat-error>
         </mat-form-field>
       </td>
       <td>
         <mat-form-field class="user-full-width">
-          <input matInput type="password" class="form-control" placeholder="Vérification du mot de passe" id="confirmPassword" formControlName="confirmPassword" />
+          <input matInput type="password" class="form-control" 
+                placeholder="Vérification du mot de passe" id="confirmPassword" 
+                formControlName="confirmPassword" 
+                [errorStateMatcher]="confirmValidParentMatcher"/>
+          <mat-error>Les mots de passe doivent être identiques</mat-error>
         </mat-form-field>
       </td>
     </tr>

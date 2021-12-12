@@ -8,14 +8,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app-material.module';
 import { NavbarComponent } from './navbar/navbar.component';
-import {LayoutModule} from "@angular/cdk/layout";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { LdapEditComponent } from './ldap-management/ldap-edit/ldap-edit.component';
-import { LdapAddComponent } from './ldap-management/ldap-add/ldap-add.component';
-import { AlertComponent } from './share/alert/alert.component';
-import {MAT_SNACK_BAR_DEFAULT_OPTIONS} from "@angular/material/snack-bar";
-import {LdapDetailComponent} from "./ldap-management/ldap-detail/ldap-detail.component";
+import { LayoutModule } from "@angular/cdk/layout";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from "@angular/material/snack-bar";
 import { LdapManagementModule } from './ldap-management/ldap-management.module';
+import { HttpClientModule } from "@angular/common/http";
+import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
+import { InMemoryUsersService } from "./service/in-memory-users.service";
 
 @NgModule({
   declarations: [
@@ -32,6 +31,8 @@ import { LdapManagementModule } from './ldap-management/ldap-management.module';
     NoopAnimationsModule,
     LdapManagementModule,
     AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryUsersService, {dataEncapsulation: false})
   ],
   providers: [
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500, verticalPosition: 'top'}}

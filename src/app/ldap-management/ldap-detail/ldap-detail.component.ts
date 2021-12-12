@@ -16,6 +16,7 @@ export abstract class LdapDetailComponent {
   confirmValidParentMatcher = new ConfirmValidParentMacther();
 
   userForm = this.fb.group({
+    id: [null],
     login: [''],
     nom: [''],
     prenom: [''],
@@ -75,6 +76,7 @@ export abstract class LdapDetailComponent {
   }
 
   protected copyUserToFormControl(): void {
+    this.userForm.get('id').setValue(this.user.id);
     this.userForm.get('login').setValue(this.user.login);
     this.userForm.get('nom').setValue(this.user.nom);
     this.userForm.get('prenom').setValue(this.user.prenom);
@@ -88,6 +90,7 @@ export abstract class LdapDetailComponent {
 
   protected getUserFromFormControl(): UserLdap {
     return {
+      id: this.userForm.get('id').value,
       login: this.userForm.get('login').value,
       nom: this.userForm.get('nom').value,
       prenom: this.userForm.get('prenom').value,

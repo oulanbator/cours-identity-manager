@@ -13,7 +13,7 @@ import {Router} from "@angular/router";
 })
 export class LdapListComponent implements OnInit {
 
-  displayedColumns: string[] = ['nomComplet', 'mail', 'employeNumero'];
+  displayedColumns: string[] = ['nomComplet', 'mail', 'employeNumero', 'id'];
   dataSource = new MatTableDataSource<UserLdap>([]);
   unactiveSelected = false;
 

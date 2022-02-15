@@ -9,9 +9,8 @@ import {AlertComponent} from "../share/alert/alert.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AppMaterialModule} from "../app-material.module";
-import {HttpClientModule} from "@angular/common/http";
-import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
-import {InMemoryUsersService} from "../service/in-memory-users.service";
+import { NavbarComponent } from '../navbar/navbar.component';
+import { AppModule } from '../app.module';
 
 
 @NgModule({
@@ -19,6 +18,7 @@ import {InMemoryUsersService} from "../service/in-memory-users.service";
     LdapListComponent,
     LdapEditComponent,
     LdapAddComponent,
+    NavbarComponent,
     AlertComponent
   ],
   imports: [

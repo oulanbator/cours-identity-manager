@@ -18,6 +18,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatSelectModule} from "@angular/material/select";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatCardModule} from '@angular/material/card';
 import {LdapDetailComponent} from "./ldap-management/ldap-detail/ldap-detail.component";
 
 const material = [
@@ -36,7 +37,8 @@ const material = [
   MatTooltipModule,
   MatProgressSpinnerModule,
   MatSelectModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatCardModule,
 ]
 
 @NgModule({

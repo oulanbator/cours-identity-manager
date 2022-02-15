@@ -30,7 +30,7 @@
 
       <mat-nav-list>
         <h2 matSubheader>Utilisateurs</h2>
-        <a mat-list-item routerLink="/users/dashboard" routerLinkActive="list-item-active">
+        <a mat-list-item routerLink="/dashboard" routerLinkActive="list-item-active">
           <mat-icon matListIcon>dashboard</mat-icon>Dashboard
         </a>
         <a mat-list-item routerLink="/users/list" routerLinkActive="list-item-active">
@@ -40,7 +40,7 @@
         <mat-divider></mat-divider>
 
         <h2 matSubheader>Importation</h2>
-        <a mat-list-item routerLink="/users/import" routerLinkActive="list-item-active">
+        <a mat-list-item routerLink="/import" routerLinkActive="list-item-active">
           <mat-icon matListIcon>save_alt</mat-icon>Importation
         </a>
       </mat-nav-list>
@@ -49,7 +49,7 @@
     <mat-sidenav-content>
       <!-- Add Content Here -->
       <div class="main_content">
-        <router-outlet></router-outlet>
+        <ng-content></ng-content>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>

@@ -56,7 +56,7 @@ export class LdapListComponent implements OnInit {
   }
 
   edit(login: string) {
-    this.router.navigate(['/user/', login]).then((e) => {
+    this.router.navigate(['/users/', login]).then((e) => {
       if (!e) {
         console.log("Navigation has failed !")
       }
@@ -64,7 +64,7 @@ export class LdapListComponent implements OnInit {
   }
 
   addUser() {
-    this.router.navigate(['/user/add']).then((e) => {
+    this.router.navigate(['/users/add']).then((e) => {
       if (!e) {
         console.log('Nagigation has failed!');
       }
